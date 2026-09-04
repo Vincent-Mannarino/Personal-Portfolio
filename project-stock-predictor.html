@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Stock Predictor — Vincent Mannarino</title>
+<meta name="description" content="A hand-built PyTorch LSTM predicting next-day stock closes, wrapped in a Flask web app. Educational project — not financial advice.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">Vincent Mannarino <span class="brand-mark">V.M.</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html" aria-current="page">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <p class="eyebrow"><a href="projects.html" style="color:inherit; text-decoration:none;">← All projects</a></p>
+    <h1>AI Stock Predictor</h1>
+    <p class="lede">A recurrent neural network built from raw PyTorch — no <code class="mono">nn.LSTM</code> shortcut — trained to predict next-day stock closes, then shipped behind a simple web app.</p>
+  </div>
+</header>
+
+<section class="tight border-top">
+  <div class="wrap">
+    <div class="spec-plate">
+      <div class="sp-cell">
+        <div class="sp-label">Status</div>
+        <div class="sp-value">Model complete · app runs locally</div>
+      </div>
+      <div class="sp-cell">
+        <div class="sp-label">Stack</div>
+        <div class="sp-value">Python, PyTorch, Flask, JS</div>
+      </div>
+      <div class="sp-cell">
+        <div class="sp-label">Result</div>
+        <div class="sp-value">Backtested vs. buy-and-hold</div>
+      </div>
+      <div class="sp-cell">
+        <div class="sp-label">Repos</div>
+        <div class="sp-value">2 — model &amp; web app</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="border-top">
+  <div class="wrap split">
+    <div>
+      <h2>Overview</h2>
+      <p>I wanted to actually understand how an LSTM works internally rather than just importing one, so I wrote the recurrent cell from scratch in PyTorch instead of using the built-in <code class="mono">nn.LSTM</code> layer. The model takes historical OHLCV (open-high-low-close-volume) data for a set of large-cap stocks and learns to predict each stock's next-day closing price. Once it worked, I wrapped it in a small Flask web app so it's actually usable: type a ticker, hit enter, get a prediction — instead of editing a Python list and re-running a script.</p>
+
+      <div class="callout" style="margin: 1.5rem 0;">
+        <p class="eyebrow" style="margin-bottom:0.4em;">Disclaimer</p>
+        <p>Built purely as a learning exercise in time-series modelling and PyTorch. It is not financial advice and was never intended to inform real investment decisions.</p>
+      </div>
+
+      <h2 style="margin-top:2rem;">The model</h2>
+      <p>The pipeline behind the model has four stages, kept in the repo end-to-end so the process is visible rather than hidden behind a finished script: a dataset builder that pulls historical OHLCV data and engineers it into training features; a notebook that defines the hand-built LSTM architecture and trains and evaluates it; a backtester that compares the model's predictions against a simple buy-and-hold baseline; and a live predictor that pulls the most recent data after market close and prints next-day return predictions.</p>
+
+      <h2 style="margin-top:2rem;">The web app</h2>
+      <p>The app is a small Flask backend that serves a single page and handles prediction requests, paired with a lightweight HTML/CSS/JS frontend. The underlying predictor was adapted from the original repo so it exposes a single function that returns one ticker's prediction, rather than only printing a hardcoded batch of results to the console.</p>
+
+      <div>
+        <img src="Screenshot-of-stock-pred-app.png" alt="Screenshot of the stock prediction web app, showing a text input for a ticker and a prediction result below it." style="width:100%; max-width:600px; display:block; margin:0 auto;">
+      </div>
+
+      <h2 style="margin-top:1rem;">What I'd improve next</h2>
+      <p>I'm upfront about this project's current limitations, because I think that honesty matters more than pretending it's finished. The backtest may be a little optimistic — it holds out one stock entirely rather than holding out a time period, so the model could be leaning on patterns shared across all the training stocks during that same window rather than showing genuine out-of-sample skill. The code itself is also spread across several scripts instead of organized into clean modules, and the dataset format shifts slightly at each stage since I built the pipeline one step at a time. On the product side, the web app currently only runs locally — deploying it properly is next. Longer term, I'd like to split training and testing by time instead of by ticker for a fairer accuracy measure, add technical-indicator features like MACD, and bring in a sentiment signal from news data, since price and volume alone can't see short-term sentiment-driven moves coming.</p>
+    </div>
+
+    <aside>
+      <div class="aside-box">
+        <h4>Two repos, one project</h4>
+        <ul>
+          <li><strong>LSTM-stock-predictor</strong> — the model, training pipeline, and backtester</li>
+          <li><strong>Stock-Prediction-App</strong> — the Flask web app that wraps the model in a usable interface</li>
+        </ul>
+      </div>
+      <div class="aside-box" style="margin-top:1.5rem;">
+        <h4>Technologies</h4>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Flask</span><span class="tag">HTML/CSS/JS</span><span class="tag">yfinance</span>
+        </div>
+      </div>
+      <a href="https://github.com/Vincent-Mannarino/LSTM-stock-predictor" target="_blank" class="btn btn-primary" style="margin-top:1.5rem; width:100%; justify-content:center;">View the model on GitHub</a>
+      <a href="https://github.com/Vincent-Mannarino/Stock-Prediction-App" target="_blank" class="btn btn-ghost" style="margin-top:0.75rem; width:100%; justify-content:center;">View the web app on GitHub</a>
+    </aside>
+  </div>
+</section>
+
+<footer class="site-footer border-top">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="eyebrow" style="margin-bottom:0.5em;">Let's talk</p>
+        <h3 style="margin-bottom:0.3em;">Open to internships, co-op terms, and engineering clubs.</h3>
+        <a href="contact.html" class="btn btn-primary">Contact me</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/Vincent-Mannarino" target="_blank">GitHub</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+    </div>
+    <p class="fine-print">© 2026 Vincent Mannarino · Sault Ste. Marie, ON · Built with HTML &amp; CSS</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

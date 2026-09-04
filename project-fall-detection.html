@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Fall Detection System — Vincent Mannarino</title>
+<meta name="description" content="Real-time fall detection using MediaPipe pose estimation and a custom PyTorch neural network. Best of Fair, 2026 STEM Fair.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">Vincent Mannarino <span class="brand-mark">V.M.</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html" aria-current="page">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <p class="eyebrow"><a href="projects.html" style="color:inherit; text-decoration:none;">← All projects</a></p>
+    <h1>AI Fall Detection System</h1>
+    <p class="lede">A real-time computer vision system that watches a webcam feed, tracks human pose, and automatically emails a caregiver the moment it detects a fall — no wearable device required.</p>
+  </div>
+</header>
+
+<section class="tight border-top">
+  <div class="wrap">
+    <div class="spec-plate">
+      <div class="sp-cell">
+        <div class="sp-label">Status</div>
+        <div class="sp-value">Complete — 2026 STEM Fair</div>
+      </div>
+      <div class="sp-cell">
+        <div class="sp-label">Stack</div>
+        <div class="sp-value">Python, PyTorch, MediaPipe, OpenCV</div>
+      </div>
+      <div class="sp-cell">
+        <div class="sp-label">Result</div>
+        <div class="sp-value">95.24% test accuracy</div>
+      </div>
+      <div class="sp-cell">
+        <div class="sp-label">Recognition</div>
+        <div class="sp-value">Best of Fair, CWSF-selected</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="border-top">
+  <div class="wrap split">
+    <div>
+      <h2>Overview</h2>
+      <p>Most fall-alert systems on the market rely on wearable devices that have to be worn constantly and, in many cases, manually triggered after a fall happens — a real problem if the person isn't wearing the device or is physically unable to activate it once they're hurt. This project explores a camera-based alternative: could computer vision and machine learning detect a fall automatically, without asking anything of the person wearing anything at all?</p>
+      <p>Rather than analyzing raw video pixels, the system tracks human pose landmarks extracted by MediaPipe — a much smaller, more efficient signal that still carries everything needed to recognize a fall. Those landmarks feed a custom-trained PyTorch neural network that classifies the motion in real time, entirely on a standard CPU.</p>
+
+      <h2 style="margin-top:2.5rem;">How it works</h2>
+      <ol class="pipeline">
+        <li>
+          <span class="step-num">01</span>
+          <div>
+            <h4>Capture</h4>
+            <p>A live webcam feed is captured and read frame-by-frame using OpenCV.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">02</span>
+          <div>
+            <h4>Pose estimation</h4>
+            <p>MediaPipe extracts human body landmarks from each frame.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">03</span>
+          <div>
+            <h4>Feature engineering</h4>
+            <p>Landmarks are converted into normalized coordinates centered on the hips, plus derived features like body aspect ratio and torso angle relative to the ground, tracked across several consecutive frames to capture motion.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">04</span>
+          <div>
+            <h4>Classification</h4>
+            <p>The feature sequence is passed through a trained neural network that predicts whether a fall is occurring.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">05</span>
+          <div>
+            <h4>Alert</h4>
+            <p>A sustained fall prediction automatically triggers an email notification to a caregiver or emergency contact.</p>
+          </div>
+        </li>
+      </ol>
+
+      <h2 style="margin-top:2.5rem;">Building the model</h2>
+      <p>Getting to 95.24% accuracy took real iteration. I built a custom dataset by scraping and labelling fall and non-fall video footage, then compared several model configurations against each other — one and two hidden-layer architectures, 16- and 32-unit layers, SGD versus Adam optimizers, and binary cross-entropy versus mean absolute error loss — before settling on the strongest combination. Because the model works from compact pose landmarks instead of raw pixels, it stays light enough to run in real time on ordinary hardware, with no GPU needed.</p>
+
+      <div class="img-placeholder" style="margin: 2rem 0;">
+        <img src="Fall-detection-pipeline.png" alt="Diagram of the fall detection pipeline, showing the five steps: capture, pose estimation, feature engineering, classification, and alert." style="width:100%; height:auto;">
+      </div>
+
+      <h2 style="margin-top:1rem;">What's next</h2>
+      <p>The dataset could grow to cover a wider range of fall scenarios and reduce overfitting. On the modelling side, I'm interested in testing sequence-aware architectures like LSTMs or transformers instead of frame-window features, and eventually adding mobile or cloud-based alerting and a secondary, voice-based detection trigger.</p>
+    </div>
+
+    <aside>
+      <div class="aside-box">
+        <h4>Recognition</h4>
+        <ul>
+          <li>Best of Fair — Overall 1st Place</li>
+          <li>1st Place, Senior Division</li>
+          <li>Computer Science Award</li>
+          <li>Selected to represent Algoma Region at the 2026 Canada-Wide Science Fair</li>
+        </ul>
+      </div>
+      <div class="aside-box" style="margin-top:1.5rem;">
+        <h4>Technologies</h4>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">MediaPipe</span><span class="tag">OpenCV</span><span class="tag">NumPy</span><span class="tag">scikit-learn</span>
+        </div>
+      </div>
+      <a href="https://github.com/Vincent-Mannarino/Fall-Detection" target="_blank" class="btn btn-primary" style="margin-top:1.5rem; width:100%; justify-content:center;">View source on GitHub</a>
+    </aside>
+  </div>
+</section>
+
+<footer class="site-footer border-top">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="eyebrow" style="margin-bottom:0.5em;">Let's talk</p>
+        <h3 style="margin-bottom:0.3em;">Open to internships, co-op terms, and engineering clubs.</h3>
+        <a href="contact.html" class="btn btn-primary">Contact me</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/Vincent-Mannarino" target="_blank">GitHub</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+    </div>
+    <p class="fine-print">© 2026 Vincent Mannarino · Sault Ste. Marie, ON · Built with HTML &amp; CSS</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vincent Mannarino — Engineering Portfolio</title>
+<meta name="description" content="Vincent Mannarino — incoming Mechatronics Engineering student at McMaster University. Computer vision, machine learning, and embedded systems projects.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">Vincent Mannarino <span class="brand-mark">V.M.</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Incoming B.Eng. — Mechatronics, McMaster University</p>
+        <h1>I build systems that watch, learn, and predict.</h1>
+        <p class="lede">Computer vision, machine learning, and embedded systems — from an award-winning, camera-based fall detector to a stock-predicting LSTM built from scratch. Currently starting Engineering at McMaster this September.</p>
+        <div class="cta-row">
+          <a href="projects.html" class="btn btn-primary">View my projects</a>
+          <a href="contact.html" class="btn btn-ghost no-arrow">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="title-block tick-frame" aria-label="Profile summary">
+        <div class="tb-row"><div class="tb-label">Name</div><div class="tb-value">Vincent Mannarino</div></div>
+        <div class="tb-row"><div class="tb-label">Program</div><div class="tb-value">B.Eng.(Exp. 2031)</div></div>
+        <div class="tb-row"><div class="tb-label">Status</div><div class="tb-value">Incoming Student — McMaster University</div></div>
+        <div class="tb-row"><div class="tb-label">Based</div><div class="tb-value">Sault Ste. Marie, ON / Hamilton, ON, Canada</div></div>
+        <div class="tb-row"><div class="tb-label">Focus</div><div class="tb-value">Computer Vision · ML · Embedded Systems</div></div>
+        <div class="tb-row"><div class="tb-label">Seeking</div><div class="tb-value">Internships · Co-op · Eng. Clubs</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="tight border-top border-bottom">
+  <div class="wrap">
+    <div class="stat-strip">
+      <div class="stat">
+        <span class="stat-num">95.24%</span>
+        <span class="stat-label">Test accuracy — fall detection model</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Best of Fair</span>
+        <span class="stat-label">Top overall award, 2026 STEM Fair</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Top 25%</span>
+        <span class="stat-label">Certificate of Distinction, CSMC</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">0 → 1</span>
+        <span class="stat-label">ML systems shipped: dataset → model → live app</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Selected work</p>
+    <h2>Featured projects</h2>
+  
+    <div class="card-grid">
+      <article class="card reveal">
+        <div class="card-media img-placeholder">
+          <img src="fall-detection-program-screenshot.png" alt="Screenshot of the fall detection program, showing a person falling and the program detecting it in real time." style="height: 280px;">
+        </div>
+        <div class="card-body">
+          <span class="ribbon">Best of Fair · 2026 Algoma STEM Fair</span>
+          <h3>AI Fall Detection System</h3>
+          <p>A real-time computer vision system that uses pose estimation and a custom-trained neural network to detect falls from a webcam feed and automatically send an emergency email alert with no wearable device required.</p>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">MediaPipe</span><span class="tag">OpenCV</span>
+          </div>
+        </div>
+        <div class="card-foot">
+          <a href="project-fall-detection.html" class="btn btn-ghost no-arrow">Read the writeup</a>
+          <a href="https://github.com/Vincent-Mannarino/Fall-Detection" class="mono" style="font-size:0.8rem;" target="_blank">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media img-placeholder">
+          <img src="Stock-Market-IMG.WEBP" alt="Stock photo of a representation of the stock market" style="height: 280px;">
+        </div>
+        <div class="card-body">
+          <span class="ribbon">Built from scratch — no nn.LSTM</span>
+          <h3>AI Stock Predictor</h3>
+          <p>A hand-built LSTM, written in raw PyTorch to understand recurrent networks from first principles, trained to predict next-day closing prices, then wrapped in a small Flask web app so anyone can type a ticker and get a prediction.</p>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Flask</span><span class="tag">Time-Series ML</span>
+          </div>
+        </div>
+        <div class="card-foot">
+          <a href="project-stock-predictor.html" class="btn btn-ghost no-arrow">Read the writeup</a>
+          <a href="https://github.com/Vincent-Mannarino/LSTM-stock-predictor" class="mono" style="font-size:0.8rem;" target="_blank">GitHub ↗</a>
+        </div>
+      </article>
+    </div>
+
+    <div style="text-align:center; margin-top: 2.5rem;">
+      <a href="projects.html" class="btn btn-copper">See all projects, including Arduino &amp; robotics work</a>
+    </div>
+  </div>
+</section>
+
+<section class="border-top">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Why mechatronics</p>
+      <h2>Coding, circuits, and math, all in one place</h2>
+      <p>My interest in engineering started with Scratch in elementary school, moved into Python and then C++ once I started wiring up Arduinos for a STEM fair solar tracker. What I liked most was watching code I wrote on a screen actually move something in the real world — that's what pulled me toward circuits, sensors, and eventually machine learning. Mechatronics is the program that lets me keep all three: software, electronics, and mechanical systems, together.</p>
+      <a href="about.html" class="btn btn-ghost">More about my background</a>
+    </div>
+    <div class="aside-box">
+      <h4>Also outside the lab</h4>
+      <ul>
+        <li>Member, Mayor's Youth Advisory Council</li>
+        <li>Founding member &amp; autonomous programmer, VEX Robotics</li>
+        <li>Certificate of Distinction, Canadian Senior Math Competition</li>
+        <li>Volunteer, Operation Smile fundraising campaign</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="eyebrow" style="margin-bottom:0.5em;">Let's talk</p>
+        <h3 style="margin-bottom:0.3em;">Open to internships, co-op terms, and engineering clubs.</h3>
+        <a href="contact.html" class="btn btn-primary">Contact me</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/Vincent-Mannarino" target="_blank">GitHub</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <p class="fine-print">© 2026 Vincent Mannarino · Sault Ste. Marie, ON / Hamilton, ON · Built with HTML &amp; CSS</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

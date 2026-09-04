@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Vincent Mannarino</title>
+<meta name="description" content="Engineering and computer science projects by Vincent Mannarino: AI fall detection, a from-scratch LSTM stock predictor, an automated solar tracker, and VEX robotics.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">Vincent Mannarino <span class="brand-mark">V.M.</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html" aria-current="page">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">Projects</p>
+    <h1>Four projects, four different corners of engineering.</h1>
+    <p class="lede">Computer vision, time-series machine learning, embedded electronics, and competitive robotics. Each one taught me something the others couldn't.</p>
+  </div>
+</header>
+
+<section class="border-top">
+  <div class="wrap">
+    <div class="card-grid">
+
+      <article class="card reveal">
+        <div class="card-media img-placeholder">
+          <img src="fall-detection-program-screenshot.png" alt="Screenshot of the fall detection program, showing a person falling and the program detecting it in real time." style="height: 280px;">
+        </div>
+        <div class="card-body">
+          <span class="ribbon">Best of Fair · 2026 STEM Fair</span>
+          <h3>AI Fall Detection System</h3>
+          <p>Real-time fall detection using MediaPipe pose estimation and a custom PyTorch neural network, with automatic email alerts. 95.24% test accuracy, running live on a standard CPU.</p>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">MediaPipe</span><span class="tag">OpenCV</span><span class="tag">Computer Vision</span>
+          </div>
+        </div>
+        <div class="card-foot">
+          <a href="project-fall-detection.html" class="btn btn-ghost no-arrow">Read the writeup</a>
+          <a href="https://github.com/Vincent-Mannarino/Fall-Detection" class="mono" style="font-size:0.8rem;" target="_blank">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media img-placeholder">
+          <img src="Stock-Market-IMG.WEBP" alt="Stock photo of a representation of the stock market" style="height: 280px;">
+        </div>
+        <div class="card-body">
+          <span class="ribbon">Built from scratch — no nn.LSTM</span>
+          <h3>AI Stock Predictor</h3>
+          <p>A hand-built LSTM trained on historical OHLCV data to predict next-day closing prices, backtested against a buy-and-hold baseline, and shipped behind a small Flask web app.</p>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Flask</span><span class="tag">Time-Series ML</span>
+          </div>
+        </div>
+        <div class="card-foot">
+          <a href="project-stock-predictor.html" class="btn btn-ghost no-arrow">Read the writeup</a>
+          <a href="https://github.com/Vincent-Mannarino/LSTM-stock-predictor" class="mono" style="font-size:0.8rem;" target="_blank">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media img-placeholder">
+          <img src="Solar-tracking-pannel-img.JPG" alt="Photo of the solar tracking system, showing the solar panel mounted on a frame with sensors and an Arduino board." style="height: 280px;">
+        </div>
+        <div class="card-body">
+          <span class="ribbon">1st Place · Intermediate Division</span>
+          <h3>Automated Solar Tracking System</h3>
+          <p>An Arduino-controlled solar panel that automatically orients itself toward the strongest available light source. My first hands-on project with C++, sensors, and circuit design, and my introduction to the idea that code I write could move something in the physical world.</p>
+          <div class="tag-row">
+            <span class="tag">Arduino</span><span class="tag">C++</span><span class="tag">Circuit Design</span><span class="tag">Sensors</span>
+          </div>
+        </div>
+        <div class="card-foot">
+          <span class="mono" style="font-size:0.8rem; color:var(--ink-soft);">Engineering Award · Computer Science Award</span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media img-placeholder">
+          <img src="Vex-Robot.jpg" alt="Photo of the VEX robot." style="height: 280px;">
+        </div>
+        <div class="card-body">
+          <span class="ribbon">Tournament Champions</span>
+          <h3>VEX Robotics — Autonomous Programming</h3>
+          <p>As a founding member of my school's VEX Robotics team, I was the lead developer for the autonomous portion of competition matches, responsible for coding and debugging the routines the robot runs without driver input, while also contributing design improvements to the robot's build.</p>
+          <div class="tag-row">
+            <span class="tag">C++</span><span class="tag">Robotics</span><span class="tag">Autonomous Programming</span><span class="tag">Team Project</span>
+          </div>
+        </div>
+        <div class="card-foot">
+          <span class="mono" style="font-size:0.8rem; color:var(--ink-soft);">2nd Place + Autonomous Award (Tournament 1)</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer border-top">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="eyebrow" style="margin-bottom:0.5em;">Let's talk</p>
+        <h3 style="margin-bottom:0.3em;">Open to internships, co-op terms, and engineering clubs.</h3>
+        <a href="contact.html" class="btn btn-primary">Contact me</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/Vincent-Mannarino" target="_blank">GitHub</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <p class="fine-print">© 2026 Vincent Mannarino · Sault Ste. Marie, ON · Built with HTML &amp; CSS</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
